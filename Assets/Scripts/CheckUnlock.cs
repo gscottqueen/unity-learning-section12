@@ -10,20 +10,23 @@ public class CheckUnlock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // make sure our active objects are set to true
         door.SetActive(true); 
         doorLock.SetActive(true);
     }
 
-    // Update is called once per frame
+    // called when the collider assigned with a trigger is hit
     void OnTriggerEnter(Collider other)
     {
+        // check to make sure the assigned object is the collision object
         if (other.gameObject == key)
-    {
-       if (door.activeInHierarchy)
-      {
-        door.SetActive(false);
-        doorLock.SetActive(false);
-      }
-    }
+        {
+            // toggle active state in the hiearchy
+            if (door.activeInHierarchy)
+            {
+              door.SetActive(false);
+              doorLock.SetActive(false);
+            }
+        }
     }
 }
