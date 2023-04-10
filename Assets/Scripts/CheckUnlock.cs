@@ -6,6 +6,7 @@ public class CheckUnlock : MonoBehaviour
 {
   public GameObject door = null;
   public GameObject doorLock = null;
+  public GameObject key = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class CheckUnlock : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Key"))
+        if (other.gameObject == key)
     {
        if (door.activeInHierarchy)
       {
